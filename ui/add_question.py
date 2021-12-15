@@ -21,9 +21,6 @@ class Ui_MainWindow(object):
         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
         self.plainTextEdit.setGeometry(QtCore.QRect(100, 200, 221, 81))
         self.plainTextEdit.setObjectName("plainTextEdit")
-        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(290, 20, 113, 23))
-        self.lineEdit.setObjectName("lineEdit")
         self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.centralwidget)
         self.plainTextEdit_2.setGeometry(QtCore.QRect(100, 300, 221, 70))
         self.plainTextEdit_2.setObjectName("plainTextEdit_2")
@@ -113,6 +110,9 @@ class Ui_MainWindow(object):
         self.pushButton_11 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_11.setGeometry(QtCore.QRect(630, 110, 151, 31))
         self.pushButton_11.setObjectName("pushButton_11")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(296, 25, 191, 20))
+        self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 20))
@@ -128,7 +128,6 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.lineEdit.setText(_translate("MainWindow", "Введите вопрос"))
         self.pushButton.setText(_translate("MainWindow", "ctrl+V"))
         self.pushButton_2.setText(_translate("MainWindow", "ctrl+V"))
         self.pushButton_3.setText(_translate("MainWindow", "ctrl+V"))
@@ -140,3 +139,4 @@ class Ui_MainWindow(object):
         self.pushButton_9.setText(_translate("MainWindow", "Сохранить, Далее"))
         self.pushButton_10.setText(_translate("MainWindow", "Сохранить, закончить"))
         self.pushButton_11.setText(_translate("MainWindow", "Назад"))
+        self.label.setText(_translate("MainWindow", "Введите вопрос"))

@@ -21,9 +21,6 @@ class Ui_MainWindow(object):
         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
         self.plainTextEdit.setGeometry(QtCore.QRect(100, 200, 221, 81))
         self.plainTextEdit.setObjectName("plainTextEdit")
-        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(320, 20, 61, 23))
-        self.lineEdit.setObjectName("lineEdit")
         self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.centralwidget)
         self.plainTextEdit_2.setGeometry(QtCore.QRect(100, 300, 221, 70))
         self.plainTextEdit_2.setObjectName("plainTextEdit_2")
@@ -75,6 +72,9 @@ class Ui_MainWindow(object):
         self.pushButton_9 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_9.setGeometry(QtCore.QRect(629, 10, 151, 31))
         self.pushButton_9.setObjectName("pushButton_9")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(320, 20, 57, 15))
+        self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 20))
@@ -90,7 +90,6 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.lineEdit.setText(_translate("MainWindow", "Вопрос"))
         self.pushButton.setText(_translate("MainWindow", "Ответ"))
         self.pushButton_2.setText(_translate("MainWindow", "Ответ"))
         self.pushButton_3.setText(_translate("MainWindow", "Ответ"))
@@ -100,3 +99,4 @@ class Ui_MainWindow(object):
         self.pushButton_7.setText(_translate("MainWindow", "Ответ"))
         self.pushButton_8.setText(_translate("MainWindow", "Ответ"))
         self.pushButton_9.setText(_translate("MainWindow", "Подтвердить"))
+        self.label.setText(_translate("MainWindow", "Вопрос"))
