@@ -12,6 +12,8 @@ class mywindow(QtWidgets.QMainWindow):
         super(mywindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+
+        self.ui.comboBox.setPlaceholderText('Question')
       
         #создаем словарь с будующими вопросами и правильными ответами
         #структура словаря {Вопрос_1:{ответ_1:false, ответ_2:true, ответ_3:false}, Вопрос_2:{ответ_1:true, ответ_2:false}}
@@ -53,8 +55,8 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.pushButton_9.clicked.connect(self.saveForward)
         # сохранить и выйти, предложив как сохранить файл
         self.ui.pushButton_10.clicked.connect(self.saveFile)
-
-        #self.ui.comboBox.currentIndexChanged.connect(self.ssssss)
+        #выбрать вопрос из существующих
+        self.ui.comboBox.currentIndexChanged.connect(self.show_question)
 
     def ctrl_V(self):
         #получаем какая кнопка была нажата, используя метод sender
@@ -80,22 +82,52 @@ class mywindow(QtWidgets.QMainWindow):
             #присваевыем тексту ответа правильный он или нет true/false
             answers[answer_text.toPlainText()] = x
         
-        #записываем вопрос и ответ в главный словарь dict_question_and_answer
-        self.dict_question_and_answer[question] = answers
-
-        #добавляем в comboBox вопрос для быстрой навигации
-        #self.ui.comboBox.addItem(question[:15]) 
-        #self.ui.comboBox.setCurrentText("Second item")
-
+        #если вопроса нет в списке, то  записываем его в словарь dict_question_and_answer
+        #и добавляем в checkbox для быстрой навигации
+        if question not in self.dict_question_and_answer:
+        
+            self.dict_question_and_answer[question] = answers  
+            self.ui.comboBox.addItem(question[:15]) 
+        #если вопрос уже есть в словаре, значит мы редактировали ответы и изменим только их
+        else:
+            self.dict_question_and_answer[question] = answers
+        
         #очистить все поля ввода и убрать выбранные ячейки
         self.ui.plainTextEdit_9.clear()
         for planText in self.dict_text_checkb:
             planText.clear()
             #убрать отметки выбранных ответов
             self.dict_text_checkb[planText].setChecked(False)
+        
+        #делаем поле с водомо вопроса изменяемым, т.к если был вызван show_question, то стоит режим readOnly
+        self.ui.plainTextEdit_9.setReadOnly(False)
 
-    #def ssssss(self):
-    #    pass
+    def show_question(self):
+        #получаем индекс выбранного вопроса
+        i = self.ui.comboBox.currentIndex()
+        #Возвращает пару (название, описание) из словаря
+        items = list(self.dict_question_and_answer.items())
+        
+        #получаем вопрос
+        question = items[i][0]
+        #получаем словарь ответов
+        dict_answers = items[i][1]
+        #выводим вопрос на экран и делаем неизменяемым
+        self.ui.plainTextEdit_9.setPlainText(question)
+        self.ui.plainTextEdit_9.setReadOnly(True)
+        #выводим ответы с обозначенными флажками на экран
+        num = 0
+        for answer in dict_answers:
+            planText = list(self.dict_text_checkb.keys())
+            planText[num].setPlainText(answer)
+            checkButton = list(self.dict_text_checkb.values())
+            if dict_answers[answer] == True:
+                checkButton[num].setChecked(True)
+            else: 
+                checkButton[num].setChecked(False)
+            num+=1
+
+      
 
     def saveFile(self):
         self.saveForward()
