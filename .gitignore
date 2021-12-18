@@ -1,3 +1,5 @@
 /venv
 /tutorial
 name_file.json
+**/__pycache__
+

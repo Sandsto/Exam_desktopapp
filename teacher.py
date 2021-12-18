@@ -55,8 +55,10 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.pushButton_9.clicked.connect(self.saveForward)
         # сохранить и выйти, предложив как сохранить файл
         self.ui.pushButton_10.clicked.connect(self.saveFile)
+        self.ui.pushButton_11.clicked.connect(self.loadFile)
         #выбрать вопрос из существующих
         self.ui.comboBox.currentIndexChanged.connect(self.show_question)
+
 
     def ctrl_V(self):
         #получаем какая кнопка была нажата, используя метод sender
@@ -103,6 +105,16 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.plainTextEdit_9.setReadOnly(False)
 
     def show_question(self):
+
+        #очистить все поля ввода и убрать выбранные ячейки
+        self.ui.plainTextEdit_9.clear()
+        for planText in self.dict_text_checkb:
+            planText.clear()
+            #убрать отметки выбранных ответов
+            self.dict_text_checkb[planText].setChecked(False)
+
+
+
         #получаем индекс выбранного вопроса
         i = self.ui.comboBox.currentIndex()
         #Возвращает пару (название, описание) из словаря
@@ -145,6 +157,19 @@ class mywindow(QtWidgets.QMainWindow):
             #закрываем приложение
             QCoreApplication.instance().quit()
 
+    def loadFile(self):
+        filename, format_file = QtWidgets.QFileDialog.getOpenFileName(self, 
+                        'Открыть файл', 
+                        './', 
+                        'JSON files (*.json)')
+        if filename:
+            with open(filename) as json_file:
+                self.dict_question_and_answer = json.load(json_file)
+        
+        #добавим в comboBox все вопросы
+        for question in self.dict_question_and_answer:
+            self.ui.comboBox.addItem(question[:15])
+            
 
 app = QtWidgets.QApplication([])
 application = mywindow()
