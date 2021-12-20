@@ -1,3 +1,4 @@
+from os import posix_fadvise
 from PyQt5 import QtWidgets
 from ui.exam import Ui_MainWindow  # импорт нашего сгенерированного файла
 import sys
@@ -28,6 +29,9 @@ class mywindow(QtWidgets.QMainWindow):
         self.check_answer = {self.ui.checkBox:False, self.ui.checkBox_2:False, self.ui.checkBox_3:False, self.ui.checkBox_4:False,
         self.ui.checkBox_5:False, self.ui.checkBox_6:False, self.ui.checkBox_7:False, self.ui.checkBox_8:False} 
 
+        #peremennaya dlya buttona_9? kotoraya izmenyaet ee povedenie
+        #v zavisimosti vvodyat otvet ili pokazivaut oshibku
+        self.was_incorrect_answer = False
 
     def loadFile(self):
         filename, format_file = QtWidgets.QFileDialog.getOpenFileName(self, 
@@ -91,7 +95,30 @@ class mywindow(QtWidgets.QMainWindow):
 
 
        
-        
+    def check_answer_func(self):
+        answer_correct = True
+        for answer in self.check_answer:
+            if answer.isChecked() !=self.check_answer[answer]:
+                answer_correct = False
+        if answer_correct:
+           self.question_passed.append(self.i)
+           if len(self.question_passed) == len(self.dict_question_and_answer):
+               pass#sdelat vizov okna zaversheniya
+           else:
+               
+               #prodvinut' progress bar
+                self.new_question()
+        else:
+            #uvelichit' indikator na 1
+            answers = list(self.check_answer.values())
+            for i in range(len(self.answer_options)):
+                if answers[i] == True:
+                    self.answer_options[i].#pomenyat' cvet fona na zeleni
+            self.was_incorrect_answer = True
+
+
+
+
         
  
  
