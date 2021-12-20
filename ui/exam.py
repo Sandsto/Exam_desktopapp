@@ -67,11 +67,6 @@ class Ui_MainWindow(object):
         self.textBrowser_9 = QtWidgets.QTextBrowser(self.centralwidget)
         self.textBrowser_9.setGeometry(QtCore.QRect(160, 30, 481, 141))
         self.textBrowser_9.setObjectName("textBrowser_9")
-        self.lcdNumber = QtWidgets.QLCDNumber(self.centralwidget)
-        self.lcdNumber.setGeometry(QtCore.QRect(43, 110, 61, 31))
-        self.lcdNumber.setStyleSheet("font: 12pt \"Sans Serif\";\n"
-"color: rgb(0, 0, 0);")
-        self.lcdNumber.setObjectName("lcdNumber")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setGeometry(QtCore.QRect(40, 70, 91, 31))
         self.label_3.setStyleSheet("font: 14pt \"Sans Serif\";")
