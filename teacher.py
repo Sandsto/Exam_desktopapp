@@ -7,9 +7,9 @@ from PyQt5.Qt import QApplication, QClipboard, QFileDialog
 from PyQt5.QtCore import QCoreApplication
  
  
-class mywindow(QtWidgets.QMainWindow):
+class teach_mywindow(QtWidgets.QMainWindow):
     def __init__(self):
-        super(mywindow, self).__init__()
+        super(teach_mywindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
@@ -170,9 +170,9 @@ class mywindow(QtWidgets.QMainWindow):
         for question in self.dict_question_and_answer:
             self.ui.comboBox.addItem(question[:15])
             
+#для автономного запуска файла
+# app = QtWidgets.QApplication([])
+# application = teacher_mywindow()
+# application.show()
 
-app = QtWidgets.QApplication([])
-application = mywindow()
-application.show()
-
-sys.exit(app.exec())
+# sys.exit(app.exec())

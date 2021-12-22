@@ -7,9 +7,9 @@ import random
 from PyQt5.QtCore import QCoreApplication
 
  
-class mywindow(QtWidgets.QMainWindow):
+class student_mywindow(QtWidgets.QMainWindow):
     def __init__(self):
-        super(mywindow, self).__init__()
+        super(student_mywindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
@@ -159,9 +159,9 @@ class mywindow(QtWidgets.QMainWindow):
 
         
  
- 
-app = QtWidgets.QApplication([])
-application = mywindow()
-application.show()
+# для завтономного запуска данного файла
+# app = QtWidgets.QApplication([])
+# application = student_mywindow()
+# application.show()
 
-sys.exit(app.exec())
+# sys.exit(app.exec())
