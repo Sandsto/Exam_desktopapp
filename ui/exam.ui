@@ -104,6 +104,11 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
    </widget>
    <widget class="QTextBrowser" name="textBrowser_2">
     <property name="geometry">
@@ -113,6 +118,11 @@
       <width>211</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QTextBrowser" name="textBrowser_3">
@@ -124,6 +134,11 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
    </widget>
    <widget class="QTextBrowser" name="textBrowser_4">
     <property name="geometry">
@@ -133,6 +148,11 @@
       <width>211</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QTextBrowser" name="textBrowser_5">
@@ -144,6 +164,11 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
    </widget>
    <widget class="QTextBrowser" name="textBrowser_6">
     <property name="geometry">
@@ -153,6 +178,11 @@
       <width>211</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QTextBrowser" name="textBrowser_7">
@@ -164,6 +194,11 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
    </widget>
    <widget class="QTextBrowser" name="textBrowser_8">
     <property name="geometry">
@@ -174,6 +209,11 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
    </widget>
    <widget class="QTextBrowser" name="textBrowser_9">
     <property name="geometry">
@@ -183,6 +223,11 @@
       <width>481</width>
       <height>141</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
