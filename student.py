@@ -1,6 +1,5 @@
 from os import posix_fadvise
 from PyQt5 import QtWidgets
-from test import shaffle_dict
 from ui.exam import Ui_MainWindow  # импорт нашего сгенерированного файла
 import sys
 import json
@@ -42,6 +41,16 @@ class student_mywindow(QtWidgets.QMainWindow):
         #подсчет количества ошибок
         self.num_errors = 0
 
+     #функция для перемешивания вариантов ответов
+    def shuffle_dict(self, d):
+        keys = list(d.keys())
+        random.shuffle(keys)
+        new_dict = {}
+        for i in keys:
+            new_dict[i] = d[i]
+        return new_dict
+
+
     def loadFile(self):
         filename, format_file = QtWidgets.QFileDialog.getOpenFileName(self, 
                         'Открыть файл', 
@@ -78,14 +87,7 @@ class student_mywindow(QtWidgets.QMainWindow):
         else:
             self.check_answer_func()
 
-    #функция для перемешивания вариантов ответов
-    def shaffle_dict(d):
-        keys = list(d.keys())
-        random.shuffle(keys)
-        new_dict = {}
-        for i in keys:
-            new_dict[i] = d[i]
-        return new_dict
+   
 
     def show_question(self):
         #получаем индекс случайного вопроса и проверяем, чтобы его не было в списке пройденых вопросов
@@ -103,7 +105,7 @@ class student_mywindow(QtWidgets.QMainWindow):
         #получаем словарь ответов
         dict_answers = items[i][1]
         #перемешиваем ответы
-        dict_answers = shaffle_dict(dict_answers)
+        dict_answers = self.shuffle_dict(dict_answers)
         #выводим вопрос на экран 
         self.ui.textBrowser_9.setText(question)
         
